@@ -1,7 +1,7 @@
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;1
+import static org.hamcrest.Matchers.equalTo;
 public class Pet {
 String baseurl="https://petstore.swagger.io/v2/";
   @Test
