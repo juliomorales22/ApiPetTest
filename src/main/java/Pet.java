@@ -1,7 +1,7 @@
+import org.testng.annotations.Test;
+
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
-
-import org.testng.annotations.Test;
 
 public class Pet {
 String baseurl="https://petstore.swagger.io/v2/";
@@ -55,8 +55,8 @@ String baseurl="https://petstore.swagger.io/v2/";
         body("id", equalTo(orderId)).
         body("quantity", equalTo(5)).
         body("status",equalTo("placed"));
-
   }
+
   @Test
   public void updatePet() {
     String endpoint = baseurl+"pet";
