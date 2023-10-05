@@ -1,13 +1,19 @@
+import io.restassured.RestAssured;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 public class Pet {
-String baseurl="https://petstore.swagger.io/v2/";
+  @BeforeTest
+  public  void init() {
+    RestAssured.baseURI = "https://petstore.swagger.io/";
+    RestAssured.basePath = "v2/";
+  }
+
+
   @Test
   public void createPet() {
-    String endpoint = baseurl+"pet";
     String body="{\n"
         + "  \"id\": 0,\n"
         + "  \"category\": {\n"
@@ -27,11 +33,11 @@ String baseurl="https://petstore.swagger.io/v2/";
         + "  \"status\": \"available\"\n"
         + "}";
 
-    given()
+         RestAssured.given()
         .header("Content-Type", "application/json")
         .body(body)
         .when()
-        .post(endpoint).
+        .post("pet").
         then().
         assertThat().
         statusCode(200).
@@ -41,25 +47,23 @@ String baseurl="https://petstore.swagger.io/v2/";
 
   @Test
   public void getOrder() {
-    String endpoint = baseurl+"store/order/";
     int orderId = 6;
 
-    given().
-        queryParam("orderId",orderId)
+         RestAssured.given().
+         pathParam("orderId",orderId)
         .header("Content-Type", "application/json")
         .when()
-        .get(endpoint+orderId).
+        .get("store/order/{orderId}").
         then().
         assertThat().
         statusCode(200).
         body("id", equalTo(orderId)).
-        body("quantity", equalTo(5)).
+        body("quantity", equalTo(7)).
         body("status",equalTo("placed"));
   }
 
   @Test
   public void updatePet() {
-    String endpoint = baseurl+"pet";
     String body="{\n"
         + "  \"id\": 0,\n"
         + "  \"category\": {\n"
@@ -79,11 +83,11 @@ String baseurl="https://petstore.swagger.io/v2/";
         + "  \"status\": \"available\"\n"
         + "}";
 
-    given()
+         RestAssured.given()
         .header("Content-Type", "application/json")
         .body(body)
         .when()
-        .put(endpoint).
+        .put("pet").
         then().
         assertThat().
         statusCode(200).
