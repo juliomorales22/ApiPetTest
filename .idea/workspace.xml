@@ -59,7 +59,7 @@
       <recent name="C:\Users\Julio_Morales\AquaProjects\apitestprueba" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.Pet.getOrder (1)">
+  <component name="RunManager" selected="TestNG.Pet.updatePet (1)">
     <configuration name="Pet.createPet (1)" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="demo18" />
       <option name="PACKAGE_NAME" value="" />
@@ -122,8 +122,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.Pet.getOrder (1)" />
         <item itemvalue="TestNG.Pet.updatePet (1)" />
+        <item itemvalue="TestNG.Pet.getOrder (1)" />
         <item itemvalue="TestNG.Pet.createPet (1)" />
         <item itemvalue="TestNG.Pet.getOrder" />
         <item itemvalue="TestNG.Pet.updatePet" />

@@ -93,7 +93,5 @@ public class Pet {
                 statusCode(200).
                 body("status", equalTo("available")).
                 body("name", equalTo("doggie"));
-        ;
-        ;
     }
 }
